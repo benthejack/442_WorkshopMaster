@@ -6,6 +6,9 @@ Explosion explosion;
 PortaMod tracker;
 public NoteData incoming;
 
+// Background systems
+SS_StarscapeManager starscapeManager;
+
 void setup() {
   size(1024, 768, JAVA2D);
   smooth();
@@ -16,6 +19,9 @@ void setup() {
   setupTracker();
 
   setupAnts();
+  
+  // Setup background
+  starscapeManager = new SS_StarscapeManager(width, height);
 }
 
 void setupTracker() {
@@ -64,7 +70,9 @@ void update() {
 
 
 void draw() {
-  background(255, 255, 255);
+  // Draw background
+  image(starscapeManager.getCanvas(), 0,0);
+  
   as.draw();
 
   AI bread;
