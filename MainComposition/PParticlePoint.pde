@@ -17,6 +17,9 @@ class PParticlePoint
     mMaxVel = 5;
     mMaxAccel = 2;
     mFriction = 0.8;
+    
+    rectMode(CENTER);
+    fill(0);
   }
   
   void setLimits(float iMaxVel, float iMaxAccel, float iFriction)
@@ -43,6 +46,13 @@ class PParticlePoint
   }
   
   void draw() {
-     ellipse(mPos.x, mPos.y, 4, 4);
+     noStroke();
+     
+     rect(mPos.x, mPos.y+2, 2, 4);
+     rect(mPos.x-4, mPos.y, 2, 3);
+     rect(mPos.x+4, mPos.y, 2, 3);
+     stroke(0);
+     line(mPos.x-2, mPos.y-2, mPos.x-1, mPos.y-5);
+     line(mPos.x+2, mPos.y-2, mPos.x+1, mPos.y-5);
   }
 }
