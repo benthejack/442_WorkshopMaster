@@ -25,7 +25,7 @@ void setup() {
 }
 
 void setupTracker() {
-  tracker = new PortaMod(parent);
+  tracker = new PortaMod(this);
   tracker.doModLoad("syphus-oldendays.mod", true, 64);
 }
 
@@ -113,6 +113,6 @@ public void grabNewdata(PortaMod b) {
 
 void stop()
 {
-  musicTracker.stop();
-  parent.stop();
+  tracker.stop();
+  this.stop();
 } 
