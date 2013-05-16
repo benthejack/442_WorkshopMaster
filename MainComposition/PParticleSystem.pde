@@ -19,16 +19,13 @@ class PParticleSystem
   {
     mBehaviours.add(b);
   }
-    
-  void applyBehaviour(PParticlePoint p, int bIdx)
-  {
-    p.applyForce(((PParticleBehaviour)mBehaviours.get(bIdx)).getForce(p.mPos, new PVector(mouseX, mouseY, 0.0)));
-  }
   
   void updateAndDraw()
   {
     for(PParticlePoint p : mParticles) {
-      applyBehaviour(p, 0);
+      for(PParticleBehaviour pb : mBehaviours) {     
+        p.applyForce( pb.getForce(p.mPos) );
+      }
       p.update();
       p.draw();
     }
