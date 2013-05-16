@@ -5,7 +5,7 @@ ArrayList<PVector> targets;
 Explosion explosion;
 
 void setup() {
-  size(1024,768, JAVA2D);
+  size(1024,768, P3D);
   
   as = new AardvarkSim();
   as.setup();
